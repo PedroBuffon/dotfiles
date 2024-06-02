@@ -7,13 +7,13 @@ if ! sudo -n true 2>/dev/null; then
 fi
 
 # Installing dependencies
-echo "Installing dependencies"
-apt install nala git curl fzf exa stow bat
+echo "Updating and Installing dependencies"
+apt update && apt upgrade -y && apt install -y nala git curl fzf exa stow bat
 
 # Check if zsh is installed
 if command -v zsh >/dev/null 2>&1; then
     echo "zsh is installed."
-    
+
     # Check if zsh is already the default shell
     if [ "$SHELL" != "$(which zsh)" ]; then
         echo "Changing default shell to zsh..."
