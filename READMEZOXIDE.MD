@@ -28,10 +28,6 @@
 
 # zoxide
 
-[![crates.io][crates.io-badge]][crates.io]
-[![Downloads][downloads-badge]][releases]
-[![Built with Nix][builtwithnix-badge]][builtwithnix]
-
 zoxide is a **smarter cd command**, inspired by z and autojump.
 
 It remembers which directories you use most frequently, so you can "jump" to
@@ -40,8 +36,6 @@ zoxide works on all major shells.
 
 [Getting started](#getting-started) •
 [Installation](#installation) •
-[Configuration](#configuration) •
-[Integrations](#third-party-integrations)
 
 </div>
 
@@ -62,16 +56,11 @@ zi foo             # cd with interactive selection (using fzf)
 z foo<SPACE><TAB>  # show interactive completions (zoxide v0.8.0+, bash 4.4+/fish/zsh only)
 ```
 
-Read more about the matching algorithm [here][algorithm-matching].
-
 ## Installation
 
 zoxide can be installed in 4 easy steps:
 
 1. **Install binary**
-
-   zoxide runs on most major platforms. If your platform isn't listed below,
-   please [open an issue][issues].
 
    <details>
    <summary>Linux / WSL</summary>
@@ -92,23 +81,10 @@ zoxide can be installed in 4 easy steps:
    > | _Any_               | [guix]                  | `guix install zoxide`                                                                                 |
    > | _Any_               | [Linuxbrew]             | `brew install zoxide`                                                                                 |
    > | _Any_               | [nixpkgs]               | `nix-env -iA nixpkgs.zoxide`                                                                          |
-   > | Alpine Linux 3.13+  | [Alpine Linux Packages] | `apk add zoxide`                                                                                      |
    > | Arch Linux          | [Arch Linux Extra]      | `pacman -S zoxide`                                                                                    |
-   > | CentOS 7+           | [Copr]                  | `dnf copr enable atim/zoxide` <br /> `dnf install zoxide`                                             |
    > | ~Debian 11+~[^1]    | ~[Debian Packages]~     | ~`apt install zoxide`~                                                                                |
-   > | Devuan 4.0+         | [Devuan Packages]       | `apt install zoxide`                                                                                  |
-   > | Exherbo Linux       | [Exherbo packages]      | `cave resolve -x repository/rust` <br /> `cave resolve -x zoxide`                                     |
    > | Fedora 32+          | [Fedora Packages]       | `dnf install zoxide`                                                                                  |
-   > | Gentoo              | [Gentoo Packages]       | `emerge app-shells/zoxide`                                                                            |
-   > | Manjaro             |                         | `pacman -S zoxide`                                                                                    |
-   > | openSUSE Tumbleweed | [openSUSE Factory]      | `zypper install zoxide`                                                                               |
-   > | ~Parrot OS~[^1]     |                         | ~`apt install zoxide`~                                                                                |
    > | ~Raspbian 11+~[^1]  | ~[Raspbian Packages]~   | ~`apt install zoxide`~                                                                                |
-   > | Rhino Linux         | [Pacstall Packages]     | `pacstall -I zoxide-deb`                                                                              |
-   > | Slackware 15.0+     | [SlackBuilds]           | [Instructions][slackbuilds-howto]                                                                     |
-   > | Solus               | [Solus Packages]        | `eopkg install zoxide`                                                                                |
-   > | ~Ubuntu 21.04+~[^1] | ~[Ubuntu Packages]~     | ~`apt install zoxide`~                                                                                |
-   > | Void Linux          | [Void Linux Packages]   | `xbps-install -S zoxide`                                                                              |
 
    </details>
 
@@ -182,11 +158,3 @@ zoxide can be installed in 4 easy steps:
    > `rm ~/.zcompdump*; compinit`.
 
    </details>
-
-3. **Install fzf** <sup>(optional)</sup>
-
-   [fzf] is a command-line fuzzy finder, used by zoxide for completions /
-   interactive selection. It can be installed from [here][fzf-installation].
-
-   > **Note**
-   > zoxide only supports fzf v0.33.0 and above.
