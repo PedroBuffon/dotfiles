@@ -8,7 +8,7 @@ fi
 
 # Installing dependencies
 echo "Updating and Installing dependencies"
-apt update && apt upgrade -y && apt install -y nala git curl fzf exa stow bat
+apt update && apt upgrade -y && apt install -y nala git curl fzf exa stow bat zsh
 
 # Check if zsh is installed
 if command -v zsh >/dev/null 2>&1; then
@@ -36,6 +36,6 @@ echo "Cloning dotfiles repo from github"
 
 git clone https://github.com/PedroBuffon/dotfiles.git
 
-cd ~/dotfiles
+cd dotfiles/
 
 stow .
