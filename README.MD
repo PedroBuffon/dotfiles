@@ -18,5 +18,5 @@
    > The recommended way to install the script is via the install script:
    >
    > ```sh
-   > curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+   > curl -sSfL https://raw.githubusercontent.com/PedroBuffon/dotfiles/master/setup.sh | sh
    > ```
