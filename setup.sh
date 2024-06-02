@@ -8,7 +8,7 @@ fi
 
 # Installing dependencies
 echo "Updating and Installing dependencies"
-apt update && apt upgrade -y && apt install -y nala git curl fzf exa stow bat zsh
+apt update && apt upgrade -y && apt install -y nala git curl fzf exa stow bat zsh gdu
 
 # Check if zsh is installed
 if command -v zsh >/dev/null 2>&1; then
@@ -35,6 +35,47 @@ fi
 echo "Cloning dotfiles repo from github"
 
 git clone https://github.com/PedroBuffon/dotfiles.git
+
+# Function to create a backup of a file
+backup_file() {
+    local file=$1
+    if [ -f "$file" ]; then
+        local timestamp=$(date +%Y%m%d_%H%M%S)
+        local backup_file="${file}_backup_$timestamp"
+        cp "$file" "$backup_file"
+        echo "Backup of $file created as $backup_file"
+    else
+        echo "$file does not exist."
+    fi
+}
+
+# Ask the user if they want to back up .bashrc
+read -p "The script will delete your .bashrc do you want to back it up? (yes/no): " backup_bashrc
+if [ "$backup_bashrc" == "yes" ]; then
+    backup_file "$HOME/.bashrc"
+else
+    rm .bashrc
+fi
+
+# Ask the user if they want to back up .profile
+read -p "The script will delete your .profile do you want to back it up? (yes/no): " backup_profile
+if [ "$backup_profile" == "yes" ]; then
+    backup_file "$HOME/.profile"
+else
+    rm .profile
+fi
+
+# Check if .zshrc exists and ask the user if they want to back it up
+if [ -f "$HOME/.zshrc" ]; then
+    read -p "The script found a .zshrc iot will be replaced do you want to back up .zshrc? (yes/no): " backup_zshrc
+    if [ "$backup_zshrc" == "yes" ]; then
+        backup_file "$HOME/.zshrc"
+    else
+        rm .zshrc
+    fi
+fi
+
+echo "Backup process completed."
 
 cd dotfiles/
 
