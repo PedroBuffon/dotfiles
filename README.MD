@@ -1,7 +1,30 @@
+
+<!-- markdownlint-configure-file {
+  "MD013": {
+    "code_blocks": false,
+    "tables": false
+  },
+  "MD033": false,
+  "MD041": false
+} -->
+
+<div align="center">
+
 # My Dotfiles
 
-This directory container dotfiles for the system
+[Installation](#installation) •
 
-## Requirements and dependencies
+</div>
 
-nala install git curl fzf bat zsh
+1. **Installation**
+
+   <details>
+   <summary>Linux / WSL</summary>
+
+   > The recommended way to install the script is via the install script:
+   >
+   > ```sh
+   > curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+   > ```
+
+   </details>
