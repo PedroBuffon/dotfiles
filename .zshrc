@@ -100,14 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias cat="batcat"
-alias cd="z"
-alias ls="exa --icons"
-alias ll="exa -alh --icons"
-alias tree="exa --tree --icons"
-alias upgrade="sudo nala upgrade && sudo snap refresh && sudo flatpak update"
-alias fetch="fastfetch"
-
+# Source aliases
+source ~/dotfiles/.aliases
 
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh)"
