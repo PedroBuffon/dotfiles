@@ -113,4 +113,3 @@ eval "$(atuin init zsh)"
 
 fastfetch
 #fortune | cowsay
-#test
