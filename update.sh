@@ -12,14 +12,14 @@ check_system_os(){
 # Check which package manager to use based on the distribution
 if command_exists dnf && check_system_os === Fedora; then
     echo "Detected Fedora or CentOS/RHEL"
-    sudo dnf upgrade
+    dnf upgrade
 elif command_exists apt-get && { [ "$check_system_os" == "Ubuntu" ] || [ "$check_system_os" == "Debian" ]; }; then
     # Commands for Ubuntu or Debian
-    sudo apt-get update
-    sudo apt-get upgrade
-elif command_exists pacman && check_system_os === Arch Linux; then
+    apt-get update
+    apt-get upgrade
+elif command_exists yay && check_system_os === Arch Linux; then
     echo "Detected Arch"
-    sudo pacman -Syu
+    yay -Syu
 else
     echo "Unsupported distribution. Exiting."
     exit 1
@@ -28,11 +28,11 @@ fi
 # Update Snap
 if command_exists snap; then
     echo "Cheking and updating Snap Updates"
-    sudo snap refresh
+    snap refresh
 fi
 
 # Update Flatpak
 if command_exists flatpak; then
     echo "Cheking and updating Flatpak Updates"
-    sudo flatpak update
+    flatpak update
 fi
