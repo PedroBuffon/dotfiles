@@ -6,14 +6,20 @@ alias tree="exa --tree --icons"
 alias upgrade="~/dotfiles/update.sh"
 alias fetch="fastfetch"
 alias fm="yazi"
-alias pl="docker pull"
-alias cpl="docker compose pull"
-alias dps="docker compose up -d"
-alias dpd="docker compose down"
+
+#Vpn
 alias vpnon="sudo wg-quick up wireguard && sleep 3 && sudo systemctl start he-ipv6.service"
 alias vpnoff="sudo systemctl stop he-ipv6.service && sleep 3 && sudo wg-quick down wireguard"
+
+#SSH
 alias buffonpc="ssh pedrobuffon@10.0.0.2"
 alias buffonpi="ssh pedrobuffon@10.0.0.253"
 
 #Github
 alias gc="git clone"
+
+#Docker
+alias dl="docker pull"
+alias dpl="docker compose pull"
+alias dcu="docker compose up -d"
+alias dcd="docker compose down"
