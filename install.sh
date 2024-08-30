@@ -13,28 +13,21 @@ check_system_os(){
     grep -E '^NAME=' /etc/os-release | sed 's/^NAME=//g' | tr -d '"' >/dev/null 2>&1
 }
 
-dependencies= "zsh fzf stow eza btop git yazi"
+dependencies="zsh fzf stow eza btop git yazi"
 
-# Ask if the user wants to install Docker
-read -p "Do you want to install the dependencies?" install_dependencies
-if [ "$install_dependencies" = "y" ] || [ "$install_dependencies" = "Y" ]; then
-    # Check which package manager to use based on the distribution
-    if command_exists dnf && check_system_os === Fedora; then
-        echo "Detected Fedora or CentOS/RHEL"
-        dnf install $dependencies
-    elif command_exists apt-get && { [ "$check_system_os" == "Ubuntu" ] || [ "$check_system_os" == "Debian" ] || [ "$check_system_os" == "Debian GNU/Linux" ]; }; then
-        echo "Detected Ubuntu or Debian"
-        apt-get update && apt-get install $dependencies
+# Check which package manager to use based on the distribution
+if command_exists dnf && check_system_os === Fedora; then
+    echo "Detected Fedora or CentOS/RHEL"
+    dnf install $dependencies
+elif command_exists apt-get && { [ "$check_system_os" == "Ubuntu" ] || [ "$check_system_os" == "Debian" ] || [ "$check_system_os" == "Debian GNU/Linux" ]; }; then
+    echo "Detected Ubuntu or Debian"
+    apt-get update && apt-get install $dependencies
 
-    elif command_exists yay && check_system_os === Arch Linux; then
-        echo "Detected Arch"
-        yay -Syu
-    else
-        echo "Unsupported distribution. Exiting."
-        exit 1
-    fi
+elif command_exists yay && check_system_os === Arch Linux; then
+    echo "Detected Arch"
+    yay -Syu
 else
-    echo "Dependencies are required to continue. Exiting."
+    echo "Unsupported distribution. Exiting."
     exit 1
 fi
 
