@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Determine if Docker is installed. If not installed, use the default installation method from https://docs.docker.com/compose/install/
-
 echo "THIS SCRIPT IS STILL IN DEVELOPMENT. DON'T USE IT IF YOU DON'T KNOW WHAT YOU'RE DOING"
 
 # Function to check if a command exists
@@ -19,7 +17,8 @@ dependencies="zsh fzf stow eza btop git yazi"
 if command_exists dnf && check_system_os === Fedora; then
     echo "Detected Fedora or CentOS/RHEL"
     dnf install $dependencies
-elif command_exists apt-get && { [ "$check_system_os" == "Ubuntu" ] || [ "$check_system_os" == "Debian" ] || [ "$check_system_os" == "Debian GNU/Linux" ] }; then
+# elif command_exists apt-get && { [ "$check_system_os" == "Ubuntu" ] || [ "$check_system_os" == "Debian" ] || [ "$check_system_os" == "Debian GNU/Linux" ]; }; then
+elif command_exists apt-get && ( [ "$check_system_os" == "Ubuntu" ] || [ "$check_system_os" == "Debian" ] || [ "$check_system_os" == "Debian GNU/Linux" ] ); then
     echo "Detected Ubuntu or Debian"
     apt-get update && apt-get install $dependencies
 elif command_exists yay && check_system_os === Arch Linux; then
