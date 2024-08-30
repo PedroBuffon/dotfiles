@@ -6,14 +6,18 @@ alias tree="exa --tree --icons"
 alias upgrade="~/dotfiles/update.sh"
 alias fetch="fastfetch"
 alias fm="yazi"
+alias clr="clear"
 
 #Vpn
 alias vpnon="sudo wg-quick up wireguard && sleep 3 && sudo systemctl start he-ipv6.service"
 alias vpnoff="sudo systemctl stop he-ipv6.service && sleep 3 && sudo wg-quick down wireguard"
+alias wireguard="sudo wg-quick up wireguard"
 
 #SSH
-alias buffonpc="ssh pedrobuffon@10.0.0.2"
+alias buffonpc="ssh pedrobuffon@10.0.0.2 -p 2424"
 alias buffonpi="ssh pedrobuffon@10.0.0.253"
+alias proxmox="ssh root@10.0.0.254"
+alias oracle="ssh ubuntu@192.168.2.5"
 
 #Github
 alias gc="git clone"
