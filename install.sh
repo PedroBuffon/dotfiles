@@ -17,7 +17,7 @@ dependencies="zsh fzf stow eza btop git yazi"
 if command_exists dnf && check_system_os === Fedora; then
     echo "Detected Fedora or CentOS/RHEL"
     dnf install $dependencies
-elif command_exists apt-get && ( [ "$check_system_os" == "Ubuntu" ] || [ "$check_system_os" == "Debian" ] || [ "$check_system_os" == "Debian GNU/Linux" ] ); then
+elif command_exists apt-get && { [ "$check_system_os" = "Ubuntu" ] || [ "$check_system_os" = "Debian" ] || [ "$check_system_os" = "Debian GNU/Linux" ]; }; then
     echo "Detected Ubuntu or Debian"
     apt-get update && apt-get install $dependencies
 elif command_exists yay && check_system_os === Arch Linux; then
