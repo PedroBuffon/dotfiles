@@ -27,3 +27,4 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 . "$HOME/.atuin/bin/env"
+. "$HOME/.cargo/env"

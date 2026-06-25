@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+#export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -110,6 +110,8 @@ export EDITOR='nano'
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+source $HOME/.cargo
+
 # Source aliases
 source ~/dotfiles/.aliases
 
@@ -122,3 +124,11 @@ eval "$(atuin init zsh)"
 
 fastfetch
 #fortune | cowsay
+
+# pnpm
+export PNPM_HOME="/home/pedrobuffon/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

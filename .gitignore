@@ -1,3 +1,6 @@
 .wakatime.cfg
 .directory
 .config
+.profile
+.bashrc
+.hushlogin
